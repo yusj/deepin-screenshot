@@ -101,9 +101,11 @@ class DeepinScreenshot(object):
         self.desktopBackground = self.getDesktopSnapshot() 
         
         # Init window.
+        pyPath = os.path.split(os.path.realpath(__file__))[0]
+        icoFile = os.path.join(pyPath, "..", "theme/logo/deepin-screenshot.ico")
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
         self.window.fullscreen()
-        self.window.set_icon_from_file("../theme/logo/deepin-screenshot.ico")
+        self.window.set_icon_from_file(icoFile)
         self.window.set_keep_above(True)
         
         # Init event handle.

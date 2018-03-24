@@ -22,6 +22,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import os
 import gettext
 import locale
 
@@ -31,14 +32,19 @@ DEFAULT_LANG = None
 #DEFAULT_LANG = "zh_TW"
 #DEFAULT_LANG = "ru_RU"
 
+
+pyPath = os.path.split(os.path.realpath(__file__))[0]
+localePath = os.path.join(pyPath, "..", "locale")
+
 if DEFAULT_LANG == None:
     (lang, _) = locale.getdefaultlocale()
     if lang in ["zh_CN", "zh_TW", "ru_RU"]:
-        __ = gettext.translation('deepin-screenshot', '../locale', languages=[lang]).gettext
+        __ = gettext.translation('deepin-screenshot', localePath, languages=[lang]).gettext
     else:
-        __ = gettext.translation('deepin-screenshot', '../locale', languages=["default"]).gettext
+        __ = gettext.translation('deepin-screenshot', localePath, languages=["default"]).gettext
 
 else:
-    __ = gettext.translation('deepin-screenshot', '../locale', languages=[DEFAULT_LANG]).gettext
+    __ = gettext.translation('deepin-screenshot', localePath, languages=[DEFAULT_LANG]).gettext
+
 
 
