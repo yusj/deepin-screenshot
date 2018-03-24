@@ -1093,9 +1093,9 @@ class DeepinScreenshot(object):
             self.drawWindowRectangle(cr)
         elif self.rectWidth:
             #Draw frame
-            self.drawFrame(cr)
+            #self.drawFrame(cr)
             # Draw drag point.
-            self.drawDragPoint(cr)
+            #self.drawDragPoint(cr)
             if self.y - 35 > 0:
                 drawRoundTextRectangle(cr, self.x + 5, self.y - 35, 85, 30, 7,'%d x %d' % (fabs(self.rectWidth), fabs(self.rectHeight)), 0.7)
             elif self.action in [None, ACTION_SELECT, ACTION_WINDOW, ACTION_INIT]:
